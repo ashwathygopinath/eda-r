@@ -1,0 +1,5 @@
+https://rpubs.com/hadley/97970
+http://www.sthda.com/english/wiki/ggplot2-histogram-easy-histogram-graph-with-ggplot2-r-package
+www.statisticshowto.com/bivariate-analysis
+/https://en.wikipedia.org/wiki/Multivariate_statistics
+https://rpubs.com/Jovial/R

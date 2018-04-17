@@ -118,23 +118,18 @@ Here is plot for quality:
 ```{r}
 ggplot(data=redWineData, aes(x=quality)) + geom_bar(width = 1, color = 'Brown', fill ='sky blue')
 
+```
+
+```{r}
 describe(redWineData$quality)
 
+```
+ 
+
+```{r}
 stat.desc(redWineData$quality)
 ```
 
-###Output
- describe(redWineData$quality)
-   vars    n mean   sd median trimmed  mad min max range skew kurtosis   se
-X1    1 1599 5.64 0.81      6    5.59 1.48   3   8     5 0.22     0.29 0.02
-
-stat.desc(redWineData$quality)
-     nbr.val     nbr.null       nbr.na          min          max 
-1.599000e+03 0.000000e+00 0.000000e+00 3.000000e+00 8.000000e+00 
-       range          sum       median         mean      SE.mean 
-5.000000e+00 9.012000e+03 6.000000e+00 5.636023e+00 2.019555e-02 
-CI.mean.0.95          var      std.dev     coef.var 
-3.961255e-02 6.521684e-01 8.075694e-01 1.432871e-01 
 
 From the above stats and plot it is noted that the maximum observations are rating 5-7.
 There are no observations with a score of 10.  
@@ -191,12 +186,6 @@ plot_with_lim(redWineData$fixed.acidity,4,14,"fixed.acidity",1)
 
 ```
 
-Result of describe function 
- vars    n mean   sd median trimmed  mad min  max range skew kurtosis
-X1    1 1599 8.32 1.74    7.9    8.15 1.48 4.6 15.9  11.3 0.98     1.12
-     se
-X1 0.04
-
 The plot shows that the fixed acidity has almost normal distribution. The mean value for the fixed acidity in the dataset is 8.32
 
 ```{r}
@@ -205,10 +194,6 @@ plot_no_lim(redWineData$volatile.acidity,"volatile.acidity")
 #setting the limits for x and y axis to 0 and 1 as there is maximum distribution of data between these values
 plot_with_lim(redWineData$volatile.acidity,0,1,"volatile.acidity",0.05)
 ```
-
-Output of Describe()
-   vars    n mean   sd median trimmed  mad  min  max range skew kurtosis se
-X1    1 1599 0.53 0.18   0.52    0.52 0.18 0.12 1.58  1.46 0.67     1.21  0
 
 The plot for volatile acidity also shows similar characterstics to fxed acidity with normal distribution.
 The mean for this variable is 0.53
@@ -220,10 +205,6 @@ plot_no_lim(redWineData$pH,"pH")
 plot_with_bin(redWineData$pH,"pH",0.05)
 ```
 
-Output
-   vars    n mean   sd median trimmed  mad  min  max range skew kurtosis se
-X1    1 1599 3.31 0.15   3.31    3.31 0.15 2.74 4.01  1.27 0.19      0.8  0
-
 The plot shows a bit of right skewness. The mean of the pH distribution is at 3.31.
 
 
@@ -233,10 +214,6 @@ plot_no_lim(redWineData$citric.acid,"citric.acid")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$citric.acid,-1,2,"citric.acid",0.08)
 ```
-
-Output:
-   vars    n mean   sd median trimmed  mad min max range skew kurtosis se
-X1    1 1599 0.27 0.19   0.26    0.26 0.25   0   1     1 0.32    -0.79  0
 
 The graph also shows a right sided tail. The mean of the citric acid distribution is 0.27. 
 Most of the observations show zero value for citric acid variable, as the spike at 0 is the maximum.
@@ -249,10 +226,6 @@ plot_no_lim(redWineData$residual.sugar,"residual.sugar")
 plot_with_lim(redWineData$residual.sugar,1,8,"residual.sugar",0.1)
 ```
 
-Output:
-   vars    n mean   sd median trimmed  mad min  max range skew kurtosis   se
-X1    1 1599 2.54 1.41    2.2    2.26 0.44 0.9 15.5  14.6 4.53    28.49 0.04
-
 The residual sugar distribution is highly right skewed. The mean for the distribution is 2.54.
 
 ```{r}
@@ -262,10 +235,6 @@ plot_no_lim(redWineData$chlorides,"chlorides")
 plot_with_lim(redWineData$chlorides,0,0.5,"chlorides",0.02)
 ```
 
-Output:
-   vars    n mean   sd median trimmed  mad  min  max range skew kurtosis se
-X1    1 1599 0.09 0.05   0.08    0.08 0.01 0.01 0.61   0.6 5.67    41.53  0
-
 The chloride distribution also shows similar charaterstics in terms of skewness as that od residual sugar. the maximum observations have value less than 0.1.
 
 ```{r}
@@ -274,9 +243,6 @@ plot_no_lim(redWineData$free.sulfur.dioxide,"free.sulfur.dioxide")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$free.sulfur.dioxide,0,45,"free.sulfur.dioxide",1)
 ```
-Output:
-   vars    n  mean    sd median trimmed   mad min max range skew kurtosis   se
-X1    1 1599 15.87 10.46     14   14.58 10.38   1  72    71 1.25     2.01 0.26
 
 The sulfur dioxide distribution is right skewed with a mean of 15.87.
 
@@ -286,11 +252,8 @@ plot_no_lim(redWineData$total.sulfur.dioxide,"total.sulfur.dioxide")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$total.sulfur.dioxide,0,180,"total.sulfur.dioxide",5)
 ```
-Output:
-   vars    n  mean   sd median trimmed   mad min max range skew kurtosis   se
-X1    1 1599 46.47 32.9     38   41.84 26.69   6 289   283 1.51     3.79 0.82
 
-The total sulfur dioxide distribution is rihght skewed with amean of 46.47
+The total sulfur dioxide distribution is rihght skewed with a mean of 46.47
 
 ```{r}
 #plotting for sulphates
@@ -298,9 +261,6 @@ plot_no_lim(redWineData$sulphates,"sulphates")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$sulphates,0,2,"sulphates",0.1)
 ```
-Output:
-   vars    n mean   sd median trimmed  mad  min max range skew kurtosis se
-X1    1 1599 0.66 0.17   0.62    0.64 0.12 0.33   2  1.67 2.42    11.66  0
 
 The sulphate distribution is right skewed with outliers and mean of 0.66.
 
@@ -311,10 +271,6 @@ plot_no_lim(redWineData$density,"density")
 plot_with_bin(redWineData$density,"density",0.001)
 ```
 
-Output:
-   vars    n mean sd median trimmed mad  min max range skew kurtosis se
-X1    1 1599    1  0      1       1   0 0.99   1  0.01 0.07     0.92  0
-
 The density distribution is normal distribution with mean of 1. The medium and mean values are the same for this distribution.
 
 ```{r}
@@ -323,10 +279,6 @@ plot_no_lim(redWineData$alcohol,"alcohol")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$alcohol,8,14,"alcohol",0.1)
 ```
-
-Output:
-   vars    n  mean   sd median trimmed  mad min  max range skew kurtosis   se
-X1    1 1599 10.42 1.07   10.2   10.31 1.04 8.4 14.9   6.5 0.86     0.19 0.03
 
 The alchol distribution shows that for majority of the observations the alcohol percent is between 9 and 11. 
 The mean is 10.42
@@ -337,10 +289,6 @@ plot_no_lim(redWineData$total_acidity,"total_acidity")
 #setting the limits for x and y axis 
 plot_with_lim(redWineData$total_acidity,4,14,"total_acidity",0.1)
 ```
-
-Output:
-   vars    n mean  sd median trimmed  mad  min   max range skew kurtosis   se
-X1    1 1599 8.85 1.7   8.45    8.69 1.42 5.12 16.29 11.17 0.97     1.23 0.04
 
 The total acidity shows approximately normal distribution the mean is 8.85.
 
@@ -354,12 +302,12 @@ From above plot it can been observed that the majority of the observations fall 
 
 # Univariate Analysis
 ## Observations in the univariate plots:
- * The variables alcohol,density,pH,fixed acidity,volatile acidity and citric acid are normally distributed as the the skewness is closer to 0.
- * The variables sulphate,total sulphur dioxide and free sulphur dioxide are slightly positively skewed in distribution
- * The variables chlorides and residual sugar are highly positive skewed distribution with outliers present in the extreme.
- * The citric acid variable has a large number of zero values.
- * Quality variable has maximum data in the average category (5 to 7), there are very few observations for good(>7) and bad (0-4) quality of wine.
- * For the maximum number of observations it is seen that the alcohol value is between 9 and 11.
+The variables alcohol,density,pH,fixed acidity,volatile acidity and citric acid are normally distributed as the the skewness is closer to 0.
+The variables sulphate,total sulphur dioxide and free sulphur dioxide are slightly positively skewed in distribution
+The variables chlorides and residual sugar are highly positive skewed distribution with outliers present in the extreme.
+The citric acid variable has a large number of zero values.
+Quality variable has maximum data in the average category (5 to 7), there are very few observations for good(>7) and bad (0-4) quality of wine.
+For the maximum number of observations it is seen that the alcohol value is between 9 and 11.
  
 ### What is the structure of your dataset?
 The dataset has 13 variables and 1599 observation. The variables in the dataset are
@@ -390,10 +338,10 @@ Yes , 2 new variables have been created. total_acidity, this the summation of th
 The second varaible created is rating, this categorises the wines based on their quality score in bad,average and good categories. 
 
 ### Of the features you investigated, were there any unusual distributions? Did you perform any operations on the data to tidy, adjust, or change the form of the data? If so, why did you do this?
- * The variables alcohol,density,pH,fixed acidity,volatile acidity and citric acid are normally distributed as the the skewness is closer to 0.
- * The variables sulphate,total sulphur dioxide and free sulphur dioxide are slightly positively skewed in distribution
- * The variables chlorides and residual sugar are highly positive skewed distribution with outliers present in the extreme.
- * The citric acid variable has a large number of zero values.
+The variables alcohol,density,pH,fixed acidity,volatile acidity and citric acid are normally distributed as the the skewness is closer to 0.
+The variables sulphate,total sulphur dioxide and free sulphur dioxide are slightly positively skewed in distribution
+The variables chlorides and residual sugar are highly positive skewed distribution with outliers present in the extreme.
+The citric acid variable has a large number of zero values.
  
 The x axis and y axis have been set to limits to have a closer view of the data. Plots with and after removing outliers have been plot to understand the distribution of data.
 
@@ -403,7 +351,7 @@ We will first ploat a scatterplot matrix, to understand the relation between 2 v
 
 We will first try to figure the corelation coeffs for all the variables with quality.
 
-```{r}
+```{r echo=FALSE, warning=FALSE, fig.width=15, fig.height= 9}
 #To increase the readability we will plot 5 variables agains quality first and then plot the remaining
 ggpairs(redWineData,columns= c("fixed.acidity","volatile.acidity","citric.acid","residual.sugar","chlorides","quality"), columnLabels = c("fixed.acidity","volatile.acidity","citric.acid","residual.sugar","chlorides","quality"),aes(colour = rating, alpha=0.4))
 
@@ -415,10 +363,11 @@ In the plot above it can be seen
 * Residual Sugar, fixed acidity and chlorides have weak relation with the quality variable.
 * Itcan be seen that citric acide has strong relation with fixed and volatile acidity.
 
-```{r}
+```{r echo=FALSE, warning=FALSE, fig.width=15, fig.height= 9, pair_plots}
 # plot graph for the remaining variables
 ggpairs(redWineData,columns= c("free.sulfur.dioxide","total.sulfur.dioxide","pH","sulphates","alcohol","total_acidity","quality"), columnLabels = c("free.sulfur.dioxide","total.sulfur.dioxide","pH","sulphates","alcohol","total_acidity","quality"),aes(colour = rating, alpha=0.4))
 ```
+
 In the plot above it can be seen 
 * Alcohol has a positive corelation and strongest relation with quality.
 * Total sulfur dioxide has strong relation with free sulfur dioxide.
@@ -552,12 +501,12 @@ The sulphates quality wines are between 0.5 and 0.8 for maximum observations
 
 # Bivariate Analysis
 ### Talk about some of the relationships you observed in this part of the investigation. How did the feature(s) of interest vary with other features in the dataset?
-* There are no variables that display strong relationship with quality. Still there is relationship between 
+There are no variables that display strong relationship with quality. Still     there is relationship between 
   alcohol,sulphates,volatile acidity, citric acid and quality
-  Also there is very strong relation observed between citric acid and fixed and volatile acidity
-  Better wines seem to have higher concentration of Citric Acid.
-  Better wines seem to have higher alcohol percentages.
-  Residual sugar has no impact on quality.
+Also there is very strong relation observed between citric acid and fixed and   volatile acidity
+Better wines seem to have higher concentration of Citric Acid.
+Better wines seem to have higher alcohol percentages.
+Residual sugar has no impact on quality.
 
 ### Did you observe any interesting relationships between the other features (not the main feature(s) of interest)?
 It has been observed that there is a strong relation between pH and total acidity. 
@@ -735,6 +684,7 @@ There were variables like volatile acidity and sulphates which if present in les
 ```{r}
 ggplot(data=redWineData, aes(x=quality)) + geom_bar(width = 1, color = 'Brown', fill ='sky blue') + ggtitle("Quality Distribution")
 ```
+
 ##Plot 1 description
 
 It can be noted that the dataset provided contains average quality wines. There are very few observations for good and bad quality wines. This constraint makes it difficult to determine the factors that will impact the quality of wine. It can be noted there are very few observation betwwen 0 - 4 and 7-10 quality score.there are approximately 1200 records in the 5-7 quality score
@@ -793,6 +743,7 @@ pl4 <- plot_scatter("alcohol","citric.acid")
 
 grid.arrange(pl1,pl2,pl3,pl4)
 ```
+
 #Plot 3 description
 It is observed that we can get good quality wine when the volatile.
 Acidity and sulphates amount are less and alcohol content is high.
